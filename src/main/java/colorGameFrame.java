@@ -202,7 +202,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button1.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button1.getBackground().equals(color.getBackground()))
+                if (!button1.getBackground().equals(color.getForeground()))
                     score -= 100;
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
@@ -285,7 +285,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button2.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-               if (!button1.getBackground().equals(color.getBackground()))
+               if (!button2.getBackground().equals(color.getForeground()))
                     score -= 100;
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
@@ -368,7 +368,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button3.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button1.getBackground().equals(color.getBackground()))
+                if (!button3.getBackground().equals(color.getForeground()))
                     score -= 100;
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
@@ -451,7 +451,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button4.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button1.getBackground().equals(color.getBackground()))
+                if (!button4.getBackground().equals(color.getForeground()))
                     score -= 100;
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
@@ -534,7 +534,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button5.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button1.getBackground().equals(color.getBackground()))
+                if (!button5.getBackground().equals(color.getForeground()))
                     score -= 100;
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
