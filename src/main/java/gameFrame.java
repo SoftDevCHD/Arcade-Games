@@ -258,8 +258,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         aDisplay.setText("A             A");
                         System.out.println("Success: " + success);
@@ -268,8 +268,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         aDisplay.setText("      A       A");
                         System.out.println("Success: " + success);
@@ -279,8 +279,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -308,8 +308,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         bDisplay.setText("   B");
                         System.out.println("Success: " + success);
@@ -318,8 +318,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         bDisplay.setText("            B");
                         System.out.println("Success: " + success);
@@ -329,8 +329,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -358,8 +358,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         cDisplay.setText("                   C");
                         System.out.println("Success: " + success);
@@ -368,8 +368,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         cDisplay.setText("                   C");
                         System.out.println("Success: " + success);
@@ -378,8 +378,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         cDisplay.setText("C");
                         System.out.println("Success: " + success);
@@ -388,8 +388,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         cDisplay.setText("C");
                         System.out.println("Success: " + success);
@@ -399,8 +399,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -433,8 +433,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -462,8 +462,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         eDisplay.setText("   E    E     E");
                         System.out.println("Success: " + success);
@@ -472,8 +472,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 3) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         eDisplay.setText("             E");
                         System.out.println("Success: " + success);
@@ -483,8 +483,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -512,8 +512,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         fDisplay.setText("                   C");
                         System.out.println("Success: " + success);
@@ -523,8 +523,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -552,8 +552,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         gDisplay.setText("                      G");
                         System.out.println("Success: " + success);
@@ -563,8 +563,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -592,8 +592,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         hDisplay.setText("   H");
                         System.out.println("Success: " + success);
@@ -603,8 +603,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -632,8 +632,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         iDisplay.setText("      I        I");
                         System.out.println("Success: " + success);
@@ -643,8 +643,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -672,8 +672,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         jDisplay.setText("                   J");
                         System.out.println("Success: " + success);
@@ -683,8 +683,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -712,8 +712,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         kDisplay.setText("                   J");
                         System.out.println("Success: " + success);
@@ -723,8 +723,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -752,8 +752,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         lDisplay.setText("   L");
                         System.out.println("Success: " + success);
@@ -763,8 +763,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -792,8 +792,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         mDisplay.setText("      M");
                         System.out.println("Success: " + success);
@@ -802,8 +802,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         mDisplay.setText("            M");
                         System.out.println("Success: " + success);
@@ -812,8 +812,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         mDisplay.setText("         M");
                         System.out.println("Success: " + success);
@@ -824,8 +824,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -853,8 +853,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 3) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         nDisplay.setText("N");
                         System.out.println("Success: " + success);
@@ -863,8 +863,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 5) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         nDisplay.setText("                   N");
                         System.out.println("Success: " + success);
@@ -875,8 +875,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -904,8 +904,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         oDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -915,8 +915,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -944,8 +944,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         pDisplay.setText("P");
                         System.out.println("Success: " + success);
@@ -955,8 +955,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -984,8 +984,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         qDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -995,8 +995,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1024,8 +1024,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         rDisplay.setText("            R");
                         System.out.println("Success: " + success);
@@ -1034,8 +1034,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         rDisplay.setText("                   R");
                         System.out.println("Success: " + success);
@@ -1044,8 +1044,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 3) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         rDisplay.setText("      R");
                         System.out.println("Success: " + success);
@@ -1054,8 +1054,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         rDisplay.setText("         R");
                         System.out.println("Success: " + success);
@@ -1065,8 +1065,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1094,8 +1094,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         sDisplay.setText("      S");
                         System.out.println("Success: " + success);
@@ -1104,8 +1104,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 3) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         sDisplay.setText("          S");
                         System.out.println("Success: " + success);
@@ -1115,8 +1115,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1144,8 +1144,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 1) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         tDisplay.setText("         T           T");
                         System.out.println("Success: " + success);
@@ -1154,8 +1154,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         tDisplay.setText("            T");
                         System.out.println("Success: " + success);
@@ -1165,8 +1165,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1194,8 +1194,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 3) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         uDisplay.setText("   U");
                         System.out.println("Success: " + success);
@@ -1205,8 +1205,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1234,8 +1234,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         vDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -1245,8 +1245,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1274,8 +1274,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         wDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -1285,8 +1285,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1314,8 +1314,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         xDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -1325,8 +1325,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1354,8 +1354,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 2) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         yDisplay.setText("                      Y");
                         System.out.println("Success: " + success);
@@ -1364,8 +1364,8 @@ public class gameFrame extends javax.swing.JFrame {
                     else if(realRand == 4) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         yDisplay.setText("                      Y");
                         System.out.println("Success: " + success);
@@ -1375,8 +1375,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1404,8 +1404,8 @@ public class gameFrame extends javax.swing.JFrame {
                     if(realRand == 42) {
                         success++;
                         if(success == counter) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         zDisplay.setText("");
                         System.out.println("Success: " + success);
@@ -1415,8 +1415,8 @@ public class gameFrame extends javax.swing.JFrame {
                         fail++;
                         score = score - 10;
                         if(fail == 6) {
+                            colorGameFrame.colorGameFrame();
                             game.dispose();
-                            gameOverFrame.gameOverFrame(score);
                         }
                         System.out.println("Fail: " + fail);
                         System.out.println("Score: " + score);
@@ -1451,7 +1451,7 @@ public class gameFrame extends javax.swing.JFrame {
         skip.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
                 game.dispose();
-                gameOverFrame.gameOverFrame(0);
+                colorGameFrame.colorGameFrame();
             }
         });
         
