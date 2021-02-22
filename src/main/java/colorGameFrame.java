@@ -28,14 +28,19 @@ import javax.swing.Timer;
 public class colorGameFrame extends javax.swing.JFrame {
 
     private static int rounds;
-    private static int score;
+    private static int score = 0;
+    
+    private static int overlapCounter = 1;
+    private static int noOverlap1 = -1;
+    private static int noOverlap2 = -1;
+    private static int noOverlap3 = -1;
+    private static int noOverlap4 = -1;
+    private static int noOverlap5 = -1;
     
     // Creating random number generator for text and buttons colors
     private static Random rand;
-    private static int random_text;
     private static int random_text_color;
     private static int random_button_color;
-    private static String text_color;
     
     /**
      * Creates new form colorGameFrame
@@ -105,17 +110,16 @@ public class colorGameFrame extends javax.swing.JFrame {
     }
     
 
-    public static void colorGameFrame() {
+    public static void colorGameFrame(int oldScore) {
         JFrame colorGame = new JFrame("Color Game"); //Creates frame
         colorGame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        overlapCounter = 1;
         
         rounds = 5;
-        score = 500;
+        score = oldScore;
         rand = new Random();
-        random_text = rand.nextInt(5) + 1;
         random_text_color = rand.nextInt(5) + 1;
         random_button_color = rand.nextInt(5) + 1;
-        text_color = "";
         
         basic g = new basic();
         
@@ -123,22 +127,27 @@ public class colorGameFrame extends javax.swing.JFrame {
         int width = 100;
         int height = 100;
         
-        //label and buttons position bounds for random positioning
-        int second_column_x_min_bound = 200;
-        int third_column_x_min_bound = 400;
-        int mid_y_bound = 200;
+        //Setting actual button and label positions
+        int button1_position = getButtonPosition();
+        int button2_position = getButtonPosition();
+        int button3_position = getButtonPosition();
+        int button4_position = getButtonPosition();
+        int button5_position = getButtonPosition();
+        int colorLabel_position = getButtonPosition();
         
-        //Get a random text for label
-        switch(random_text) {
-            case 1: text_color = "BLUE";
-            case 2: text_color = "GREEN";
-            case 3: text_color = "RED";
-            case 4: text_color = "YELLOW";
-            case 5: text_color = "PINK";
-        }
+        //Set label length
+        int labelLength = 100;
+        
+        //Creating score label
+        int score_horiOffset = 20;
+        int score_vertOffset = 20;
+        JLabel displayScore = new JLabel("Score: " + score);
+        displayScore.setFont(new Font("Verdana", Font.BOLD, 14));
+        displayScore.setForeground(Color.blue);
+        displayScore.setBounds(10, 50, 90, 50);
         
         //Get a random color for label
-        JLabel color = new JLabel(text_color);
+        JLabel color = new JLabel(setLabelText());
         switch(random_text_color) {
             case 1: color.setForeground(Color.BLUE);
             case 2: color.setForeground(Color.GREEN);
@@ -149,8 +158,7 @@ public class colorGameFrame extends javax.swing.JFrame {
 
         color.setFont(new Font("Verdana", Font.BOLD, 18));
         Dimension size = color.getPreferredSize();
-        color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height);
+        color.setBounds(buttonPositionX(colorLabel_position), buttonPositionY(colorLabel_position), labelLength, size.height);
         
         //Size for all buttons
         int button_size_r = 50;
@@ -189,9 +197,7 @@ public class colorGameFrame extends javax.swing.JFrame {
                     button5.setBackground(Color.YELLOW);
         }
         
-        
-        button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
+        button1.setBounds(buttonPositionX(button1_position), buttonPositionY(button1_position), button_size_r, button_size_r);
         button1.addMouseListener(new MouseAdapter() {
             public void mouseEntered() {
                 button1.setBackground(button1.getBackground().brighter());
@@ -202,31 +208,35 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button1.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button1.getBackground().equals(color.getForeground()))
-                    score -= 100;
+                if (button1.getBackground().equals(color.getForeground())) {
+                    score += 100;
+                    System.out.println("Sucess");
+                }
+                    
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
                     colorGame.dispose();
                 }
                 
-                random_text = rand.nextInt(5) + 1;
+                displayScore.setText("Score: " + score);
+                
+                overlapCounter = 1;
                 random_text_color = rand.nextInt(5) + 1;
                 random_button_color = rand.nextInt(5) + 1;
                 
-                switch(random_text) {
-                    case 1: color.setText("BLUE");
-                    case 2: color.setText("GREEN");
-                    case 3: color.setText("RED");
-                    case 4: color.setText("YELLOW");
-                    case 5: color.setText("PINK");
-                }
+                color.setText(setLabelText());
         
                 switch(random_text_color) {
                     case 1: color.setForeground(Color.BLUE);
+                    break;
                     case 2: color.setForeground(Color.GREEN);
+                    break;
                     case 3: color.setForeground(Color.RED);
+                    break;
                     case 4: color.setForeground(Color.YELLOW);
+                    break;
                     case 5: color.setForeground(Color.PINK);
+                    break;
                 }
                 
                 switch(random_button_color) {
@@ -257,24 +267,24 @@ public class colorGameFrame extends javax.swing.JFrame {
                             button5.setBackground(Color.YELLOW);
                 }
                 
-                button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height);
+                int button1_positionRedo = getButtonPosition();
+                int button2_positionRedo = getButtonPosition();
+                int button3_positionRedo = getButtonPosition();
+                int button4_positionRedo = getButtonPosition();
+                int button5_positionRedo = getButtonPosition();
+                int colorLabel_positionRedo = getButtonPosition();
+                
+                button1.setBounds(buttonPositionX(button1_positionRedo), buttonPositionY(button1_positionRedo), button_size_r, button_size_r);
+                button2.setBounds(buttonPositionX(button2_positionRedo), buttonPositionY(button2_positionRedo), button_size_r, button_size_r);
+                button3.setBounds(buttonPositionX(button3_positionRedo), buttonPositionY(button3_positionRedo), button_size_r, button_size_r);
+                button4.setBounds(buttonPositionX(button4_positionRedo), buttonPositionY(button4_positionRedo), button_size_r, button_size_r);
+                button5.setBounds(buttonPositionX(button5_positionRedo), buttonPositionY(button5_positionRedo), button_size_r, button_size_r);
+                color.setBounds(buttonPositionX(colorLabel_positionRedo), buttonPositionY(colorLabel_positionRedo), labelLength, size.height);
             }
         });
         
         
-        button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
+        button2.setBounds(buttonPositionX(button2_position), buttonPositionY(button2_position), button_size_r, button_size_r);
         button2.addMouseListener(new MouseAdapter() {
             public void mouseEntered() {
                 button5.setBackground(button2.getBackground().brighter());
@@ -285,31 +295,35 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button2.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-               if (!button2.getBackground().equals(color.getForeground()))
-                    score -= 100;
+               if (button2.getBackground().equals(color.getForeground())) {
+                    score += 100;
+                    System.out.println("Sucess");
+               }
+               
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
                     colorGame.dispose();
                 }
                 
-                random_text = rand.nextInt(5) + 1;
+                displayScore.setText("Score: " + score);
+                
+                overlapCounter = 1;
                 random_text_color = rand.nextInt(5) + 1;
                 random_button_color = rand.nextInt(5) + 1;
                 
-                switch(random_text) {
-                    case 1: color.setText("BLUE");
-                    case 2: color.setText("GREEN");
-                    case 3: color.setText("RED");
-                    case 4: color.setText("YELLOW");
-                    case 5: color.setText("PINK");
-                }
+                color.setText(setLabelText());
         
                 switch(random_text_color) {
                     case 1: color.setForeground(Color.BLUE);
+                    break;
                     case 2: color.setForeground(Color.GREEN);
+                    break;
                     case 3: color.setForeground(Color.RED);
+                    break;
                     case 4: color.setForeground(Color.YELLOW);
+                    break;
                     case 5: color.setForeground(Color.PINK);
+                    break;
                 }
                 
                 switch(random_button_color) {
@@ -340,24 +354,24 @@ public class colorGameFrame extends javax.swing.JFrame {
                             button5.setBackground(Color.YELLOW);
                 }
                 
-                button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height); 
+                int button1_positionRedo = getButtonPosition();
+                int button2_positionRedo = getButtonPosition();
+                int button3_positionRedo = getButtonPosition();
+                int button4_positionRedo = getButtonPosition();
+                int button5_positionRedo = getButtonPosition();
+                int colorLabel_positionRedo = getButtonPosition();
+                
+                button1.setBounds(buttonPositionX(button1_positionRedo), buttonPositionY(button1_positionRedo), button_size_r, button_size_r);
+                button2.setBounds(buttonPositionX(button2_positionRedo), buttonPositionY(button2_positionRedo), button_size_r, button_size_r);
+                button3.setBounds(buttonPositionX(button3_positionRedo), buttonPositionY(button3_positionRedo), button_size_r, button_size_r);
+                button4.setBounds(buttonPositionX(button4_positionRedo), buttonPositionY(button4_positionRedo), button_size_r, button_size_r);
+                button5.setBounds(buttonPositionX(button5_positionRedo), buttonPositionY(button5_positionRedo), button_size_r, button_size_r);
+                color.setBounds(buttonPositionX(colorLabel_positionRedo), buttonPositionY(colorLabel_positionRedo), labelLength, size.height);
             }
         });
         
         
-        button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
+        button3.setBounds(buttonPositionX(button3_position), buttonPositionY(button3_position), button_size_r, button_size_r);
         button3.addMouseListener(new MouseAdapter() {
             public void mouseEntered() {
                 button3.setBackground(button3.getBackground().brighter());
@@ -368,31 +382,35 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button3.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button3.getBackground().equals(color.getForeground()))
-                    score -= 100;
+                if (button3.getBackground().equals(color.getForeground())) {
+                    score += 100;
+                    System.out.println("Sucess");
+                }
+                
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
                     colorGame.dispose();
                 }
                 
-                random_text = rand.nextInt(5) + 1;
+                displayScore.setText("Score: " + score);
+                
+                overlapCounter = 1;
                 random_text_color = rand.nextInt(5) + 1;
                 random_button_color = rand.nextInt(5) + 1;
                 
-                switch(random_text) {
-                    case 1: color.setText("BLUE");
-                    case 2: color.setText("GREEN");
-                    case 3: color.setText("RED");
-                    case 4: color.setText("YELLOW");
-                    case 5: color.setText("PINK");
-                }
+                color.setText(setLabelText());
         
                 switch(random_text_color) {
                     case 1: color.setForeground(Color.BLUE);
+                    break;
                     case 2: color.setForeground(Color.GREEN);
+                    break;
                     case 3: color.setForeground(Color.RED);
+                    break;
                     case 4: color.setForeground(Color.YELLOW);
+                    break;
                     case 5: color.setForeground(Color.PINK);
+                    break;
                 }
                 
                 switch(random_button_color) {
@@ -423,24 +441,24 @@ public class colorGameFrame extends javax.swing.JFrame {
                             button5.setBackground(Color.YELLOW);
                 }
                 
-                button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height);
+                int button1_positionRedo = getButtonPosition();
+                int button2_positionRedo = getButtonPosition();
+                int button3_positionRedo = getButtonPosition();
+                int button4_positionRedo = getButtonPosition();
+                int button5_positionRedo = getButtonPosition();
+                int colorLabel_positionRedo = getButtonPosition();
+                
+                button1.setBounds(buttonPositionX(button1_positionRedo), buttonPositionY(button1_positionRedo), button_size_r, button_size_r);
+                button2.setBounds(buttonPositionX(button2_positionRedo), buttonPositionY(button2_positionRedo), button_size_r, button_size_r);
+                button3.setBounds(buttonPositionX(button3_positionRedo), buttonPositionY(button3_positionRedo), button_size_r, button_size_r);
+                button4.setBounds(buttonPositionX(button4_positionRedo), buttonPositionY(button4_positionRedo), button_size_r, button_size_r);
+                button5.setBounds(buttonPositionX(button5_positionRedo), buttonPositionY(button5_positionRedo), button_size_r, button_size_r);
+                color.setBounds(buttonPositionX(colorLabel_positionRedo), buttonPositionY(colorLabel_positionRedo), labelLength, size.height);
             }
         });
         
         
-        button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
+        button4.setBounds(buttonPositionX(button4_position), buttonPositionY(button4_position), button_size_r, button_size_r);
         button4.addMouseListener(new MouseAdapter() {
             public void mouseEntered() {
                 button4.setBackground(button4.getBackground().brighter());
@@ -451,31 +469,35 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button4.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button4.getBackground().equals(color.getForeground()))
-                    score -= 100;
+                if (button4.getBackground().equals(color.getForeground())) {
+                    score += 100;
+                    System.out.println("Sucess");
+                }
+                
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
                     colorGame.dispose();
                 }
                 
-                random_text = rand.nextInt(5) + 1;
+                displayScore.setText("Score: " + score);
+                
+                overlapCounter = 1;
                 random_text_color = rand.nextInt(5) + 1;
                 random_button_color = rand.nextInt(5) + 1;
                 
-                switch(random_text) {
-                    case 1: color.setText("BLUE");
-                    case 2: color.setText("GREEN");
-                    case 3: color.setText("RED");
-                    case 4: color.setText("YELLOW");
-                    case 5: color.setText("PINK");
-                }
+                color.setText(setLabelText());
         
                 switch(random_text_color) {
                     case 1: color.setForeground(Color.BLUE);
+                    break;
                     case 2: color.setForeground(Color.GREEN);
+                    break;
                     case 3: color.setForeground(Color.RED);
+                    break;
                     case 4: color.setForeground(Color.YELLOW);
+                    break;
                     case 5: color.setForeground(Color.PINK);
+                    break;
                 }
                 
                 switch(random_button_color) {
@@ -506,24 +528,24 @@ public class colorGameFrame extends javax.swing.JFrame {
                             button5.setBackground(Color.YELLOW);
                 }
                 
-                button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height);
+                int button1_positionRedo = getButtonPosition();
+                int button2_positionRedo = getButtonPosition();
+                int button3_positionRedo = getButtonPosition();
+                int button4_positionRedo = getButtonPosition();
+                int button5_positionRedo = getButtonPosition();
+                int colorLabel_positionRedo = getButtonPosition();
+                
+                button1.setBounds(buttonPositionX(button1_positionRedo), buttonPositionY(button1_positionRedo), button_size_r, button_size_r);
+                button2.setBounds(buttonPositionX(button2_positionRedo), buttonPositionY(button2_positionRedo), button_size_r, button_size_r);
+                button3.setBounds(buttonPositionX(button3_positionRedo), buttonPositionY(button3_positionRedo), button_size_r, button_size_r);
+                button4.setBounds(buttonPositionX(button4_positionRedo), buttonPositionY(button4_positionRedo), button_size_r, button_size_r);
+                button5.setBounds(buttonPositionX(button5_positionRedo), buttonPositionY(button5_positionRedo), button_size_r, button_size_r);
+                color.setBounds(buttonPositionX(colorLabel_positionRedo), buttonPositionY(colorLabel_positionRedo), labelLength, size.height);
             }
         });
         
         
-        button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
+        button5.setBounds(buttonPositionX(button5_position), buttonPositionY(button5_position), button_size_r, button_size_r);
         button5.addMouseListener(new MouseAdapter() {
             public void mouseEntered() {
                 button5.setBackground(button5.getBackground().brighter());
@@ -534,31 +556,35 @@ public class colorGameFrame extends javax.swing.JFrame {
         });
         button5.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                if (!button5.getBackground().equals(color.getForeground()))
-                    score -= 100;
+                if (button5.getBackground().equals(color.getForeground())) {
+                    score += 100;
+                    System.out.println("Sucess");
+                }
+                
                 if (--rounds == 0) {
                     gameOverFrame.gameOverFrame(score);
                     colorGame.dispose();
                 }
                 
-                random_text = rand.nextInt(5) + 1;
+                displayScore.setText("Score: " + score);
+                
+                overlapCounter = 1;
                 random_text_color = rand.nextInt(5) + 1;
                 random_button_color = rand.nextInt(5) + 1;
                 
-                switch(random_text) {
-                    case 1: color.setText("BLUE");
-                    case 2: color.setText("GREEN");
-                    case 3: color.setText("RED");
-                    case 4: color.setText("YELLOW");
-                    case 5: color.setText("PINK");
-                }
+                color.setText(setLabelText());
         
                 switch(random_text_color) {
                     case 1: color.setForeground(Color.BLUE);
+                    break;
                     case 2: color.setForeground(Color.GREEN);
+                    break;
                     case 3: color.setForeground(Color.RED);
+                    break;
                     case 4: color.setForeground(Color.YELLOW);
+                    break;
                     case 5: color.setForeground(Color.PINK);
+                    break;
                 }
                 
                 switch(random_button_color) {
@@ -589,18 +615,19 @@ public class colorGameFrame extends javax.swing.JFrame {
                             button5.setBackground(Color.YELLOW);
                 }
                 
-                button1.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button2.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button3.setBounds(rand.nextInt(second_column_x_min_bound - button_size_r - 1) + 200 + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                button4.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + button_size_r/2, button_size_r, button_size_r);
-                button5.setBounds(rand.nextInt(third_column_x_min_bound - button_size_r + 200 - 1) + button_size_r/2 + 1,
-                          rand.nextInt(mid_y_bound - button_size_r) + 200 + button_size_r/2, button_size_r, button_size_r);
-                color.setBounds(rand.nextInt(second_column_x_min_bound - size.width - 1) + 200 + 1,
-                        rand.nextInt(mid_y_bound) + size.height + 1, size.width, size.height);
+                int button1_positionRedo = getButtonPosition();
+                int button2_positionRedo = getButtonPosition();
+                int button3_positionRedo = getButtonPosition();
+                int button4_positionRedo = getButtonPosition();
+                int button5_positionRedo = getButtonPosition();
+                int colorLabel_positionRedo = getButtonPosition();
+                
+                button1.setBounds(buttonPositionX(button1_positionRedo), buttonPositionY(button1_positionRedo), button_size_r, button_size_r);
+                button2.setBounds(buttonPositionX(button2_positionRedo), buttonPositionY(button2_positionRedo), button_size_r, button_size_r);
+                button3.setBounds(buttonPositionX(button3_positionRedo), buttonPositionY(button3_positionRedo), button_size_r, button_size_r);
+                button4.setBounds(buttonPositionX(button4_positionRedo), buttonPositionY(button4_positionRedo), button_size_r, button_size_r);
+                button5.setBounds(buttonPositionX(button5_positionRedo), buttonPositionY(button5_positionRedo), button_size_r, button_size_r);
+                color.setBounds(buttonPositionX(colorLabel_positionRedo), buttonPositionY(colorLabel_positionRedo), labelLength, size.height);
             }
         });
         
@@ -630,6 +657,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         colorGame.add(button4);
         colorGame.add(button5);
         colorGame.add(color);
+        colorGame.add(displayScore);
         
         //Draws background on frame and makes it visible
         colorGame.add(g);
@@ -639,4 +667,87 @@ public class colorGameFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+    
+    public static String setLabelText() {
+        int colorIndex = rand.nextInt(5) + 1;
+        switch(colorIndex) {
+            case 1: return "BLUE";
+            case 2: return "GREEN";
+            case 3: return "RED";
+            case 4: return "YELLOW";
+            case 5: return "PINK";
+        }
+        return "0";
+    }
+    
+    public static int getButtonPosition() {
+        int randomNum = rand.nextInt(20) + 1;
+        boolean overlap = true;
+        while (overlap) {
+            if(randomNum != noOverlap1 && randomNum != noOverlap2 && randomNum != noOverlap3 && randomNum != noOverlap4 && randomNum !=noOverlap5) {
+                overlap = false;
+                switch (overlapCounter) {
+                    case 1: 
+                        noOverlap1 = randomNum;
+                        break;
+                    case 2: 
+                        noOverlap2 = randomNum;
+                        break;
+                    case 3: 
+                        noOverlap3 = randomNum;
+                        break;
+                    case 4: 
+                        noOverlap4 = randomNum;
+                        break;
+                    case 5: 
+                        noOverlap5 = randomNum;
+                        break;
+                }
+                overlapCounter++;
+                break;
+            }
+            
+            else {
+                randomNum = rand.nextInt(20) + 1;
+            }
+            
+        }
+        
+        return randomNum;
+    }
+    
+    public static int buttonPositionX(int index) {
+        int horiInit = 50;
+        int horiOffset = 101;
+        switch(index) {
+            case 1, 6, 11, 16:
+                return horiInit;
+            case 2, 7, 12, 17:
+                return horiInit + horiOffset;
+            case 3, 8, 13, 18:
+                return horiInit + 2*horiOffset;
+            case 4, 9, 14, 19:
+                return horiInit + 3*horiOffset;
+            case 5, 10, 15, 20:
+                return horiInit + 4*horiOffset;
+        }
+        return -1;
+    }
+    
+    public static int buttonPositionY(int index) {
+        int vertInit = 100;
+        int vertOffset = 80;
+        switch(index) {
+            case 1, 5, 9, 13, 17:
+                return vertInit;
+            case 2, 6, 10, 14, 18:
+                return vertInit + vertOffset;
+            case 3, 7, 11, 15, 19:
+                return vertInit + 2*vertOffset;
+            case 4, 8, 12, 16, 20:
+                return vertInit + 3*vertOffset;
+        }
+        return -1;
+    }
+    
 }
