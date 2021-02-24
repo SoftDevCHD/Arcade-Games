@@ -7,6 +7,13 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -95,6 +102,105 @@ public class gameOverFrame extends javax.swing.JFrame {
         int Dhori = 110;
         int Dvert = 30;
         
+        //High Score Read/Write
+        int count = 1;
+        try {
+            int readScore = 0;
+            String filename = "src//highscore.txt";
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            
+            String line1, line2, line3, line4, line5, line6, line7, line8;
+            line1 = scan.nextLine();
+            line2 = scan.nextLine();
+            line3 = scan.nextLine();
+            line4 = scan.nextLine();
+            line5 = scan.nextLine();
+            line6 = scan.nextLine();
+            line7 = scan.nextLine();
+            line8 = scan.nextLine();
+            System.out.println(line1 + line2);
+            System.out.println(line3 + line4);
+            System.out.println(line5 + line6);
+            System.out.println(line7 + line8);
+            
+            FileWriter fw = new FileWriter(file);
+            PrintWriter pw = new PrintWriter(fw);
+            
+            while (count <= 4) {
+                switch (count) {
+                    case 1:
+                        readScore = Integer.parseInt(line1);
+                        break;
+                    case 2:
+                        readScore = Integer.parseInt(line3);
+                        break;
+                    case 3:
+                        readScore = Integer.parseInt(line5);
+                        break;
+                    case 4:
+                        readScore = Integer.parseInt(line7);
+                        break;
+                }
+                if(readScore < score) {
+                    //Set up the new high score
+                    System.out.println("You beat the high score " + count);
+                    
+                    String inputNewScore = JOptionPane.showInputDialog(gameOver, "You beat the high score! Input your initials or cancel to quit.", null);
+                    System.out.println(inputNewScore);
+                    if(inputNewScore != null) {
+                        switch (count) {
+                            case 1:
+                                line7 = line5;
+                                line8 = line6;
+                                line5 = line3;
+                                line6 = line4;
+                                line3 = line1;
+                                line4 = line2;
+                                line1 = String.valueOf(score);
+                                line2 = inputNewScore;
+                                break;
+                            case 2:
+                                line7 = line5;
+                                line8 = line6;
+                                line5 = line3;
+                                line6 = line4;
+                                line3 = String.valueOf(score);
+                                line4 = inputNewScore;
+                                break;
+                            case 3:
+                                line7 = line5;
+                                line8 = line6;
+                                line5 = String.valueOf(score);
+                                line6 = inputNewScore;
+                                break;
+                            case 4:
+                                line7 = String.valueOf(score);
+                                line8 = inputNewScore;
+                                break;
+                        }
+                    }
+                    break;
+                }
+                count++;
+            }
+            
+            pw.println(line1);
+            pw.println(line2);
+            pw.println(line3);
+            pw.println(line4);
+            pw.println(line5);
+            pw.println(line6);
+            pw.println(line7);
+            pw.println(line8);
+            
+            pw.close();
+        }
+        catch (IOException e) {
+            System.out.println("Error, file not found");
+        }
+        
+        
         JButton retry = new JButton("Retry");   //Creates button
         retry.addActionListener(new ActionListener() {  //Adds action listener to button
             public void actionPerformed(ActionEvent e) {
@@ -142,4 +248,5 @@ public class gameOverFrame extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
 }

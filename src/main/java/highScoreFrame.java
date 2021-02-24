@@ -7,6 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -105,17 +111,25 @@ public class highScoreFrame extends javax.swing.JFrame {
             }
         });
         
-        //Ints to store the high scores
-        int score1 = 420;
-        int score2 = 385;
-        int score3 = 100;
-        int score4 = 69;
-        
-        //Strings to store names of high score holders
-        String name1 = "John Doe";
-        String name2 = "JarJar Binx";
-        String name3 = "Papa Mario";
-        String name4 = "Manama Jeff";
+        //Setting up file
+        String score1 = "", name1= "", score2= "", name2= "", score3= "", name3= "", score4= "", name4= "";
+        try {
+            String filename = "src//highscore.txt";
+            File file = new File(filename);
+            Scanner scan = new Scanner(file);
+            
+            score1 = scan.nextLine();
+            name1 = scan.nextLine();
+            score2 = scan.nextLine();
+            name2 = scan.nextLine();
+            score3 = scan.nextLine();
+            name3 = scan.nextLine();
+            score4 = scan.nextLine();
+            name4 = scan.nextLine();
+        }
+        catch(IOException e) {
+            System.out.println("An error occurred when looking for the file");
+        }
         
         //Labels to display name and score
         JLabel title = new JLabel("HIGH SCORES");
