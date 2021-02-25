@@ -5,10 +5,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,7 +25,7 @@ import javax.swing.Timer;
  *
  * @author Clare
  */
-public class colorGameFrame extends javax.swing.JFrame {
+public class colorGameFrame extends javax.swing.JFrame{
 
     private static int rounds;
     private static int score = 0;
@@ -169,6 +168,7 @@ public class colorGameFrame extends javax.swing.JFrame {
         JButton button3 = new JButton();
         JButton button4 = new JButton();
         JButton button5 = new JButton();
+
         
         switch(random_button_color) {
             case 1: button1.setBackground(Color.BLUE);
@@ -200,11 +200,11 @@ public class colorGameFrame extends javax.swing.JFrame {
         
         button1.setBounds(buttonPositionX(button1_position), buttonPositionY(button1_position), button_size_r, button_size_r);
         button1.addMouseListener(new MouseAdapter() {
-            public void mouseEntered() {
-                button1.setBackground(button1.getBackground().brighter());
+            public void mouseEntered(MouseEvent e) {
+                button1.setBackground(button1.getBackground());
             }
-            public void mouseExited() {
-                button1.setBackground(button1.getBackground().darker());
+            public void mouseExited(MouseEvent e) {
+                button1.setBackground(button1.getBackground());
             }
         });
         button1.addActionListener(new ActionListener() {   //Adds action listeners to button
@@ -287,11 +287,11 @@ public class colorGameFrame extends javax.swing.JFrame {
         
         button2.setBounds(buttonPositionX(button2_position), buttonPositionY(button2_position), button_size_r, button_size_r);
         button2.addMouseListener(new MouseAdapter() {
-            public void mouseEntered() {
-                button5.setBackground(button2.getBackground().brighter());
+            public void mouseEntered(MouseEvent e) {
+                button2.setBackground(button2.getBackground());
             }
-            public void mouseExited() {
-                button2.setBackground(button2.getBackground().darker());
+            public void mouseExited(MouseEvent e) {
+                button2.setBackground(button2.getBackground());
             }
         });
         button2.addActionListener(new ActionListener() {   //Adds action listeners to button
@@ -374,11 +374,11 @@ public class colorGameFrame extends javax.swing.JFrame {
         
         button3.setBounds(buttonPositionX(button3_position), buttonPositionY(button3_position), button_size_r, button_size_r);
         button3.addMouseListener(new MouseAdapter() {
-            public void mouseEntered() {
-                button3.setBackground(button3.getBackground().brighter());
+            public void mouseEntered(MouseEvent e) {
+                button3.setBackground(button3.getBackground());
             }
-            public void mouseExited() {
-                button3.setBackground(button3.getBackground().darker());
+            public void mouseExited(MouseEvent e) {
+                button3.setBackground(button3.getBackground());
             }
         });
         button3.addActionListener(new ActionListener() {   //Adds action listeners to button
@@ -461,11 +461,11 @@ public class colorGameFrame extends javax.swing.JFrame {
         
         button4.setBounds(buttonPositionX(button4_position), buttonPositionY(button4_position), button_size_r, button_size_r);
         button4.addMouseListener(new MouseAdapter() {
-            public void mouseEntered() {
-                button4.setBackground(button4.getBackground().brighter());
+            public void mouseEntered(MouseEvent e) {
+                button4.setBackground(button4.getBackground());
             }
-            public void mouseExited() {
-                button4.setBackground(button4.getBackground().darker());
+            public void mouseExited(MouseEvent e) {
+                button4.setBackground(button4.getBackground());
             }
         });
         button4.addActionListener(new ActionListener() {   //Adds action listeners to button
@@ -548,11 +548,11 @@ public class colorGameFrame extends javax.swing.JFrame {
         
         button5.setBounds(buttonPositionX(button5_position), buttonPositionY(button5_position), button_size_r, button_size_r);
         button5.addMouseListener(new MouseAdapter() {
-            public void mouseEntered() {
-                button5.setBackground(button5.getBackground().brighter());
+            public void mouseEntered(MouseEvent e) {
+                button5.setBackground(button5.getBackground());
             }
-            public void mouseExited() {
-                button5.setBackground(button5.getBackground().darker());
+            public void mouseExited(MouseEvent e) {
+                button5.setBackground(button5.getBackground());
             }
         });
         button5.addActionListener(new ActionListener() {   //Adds action listeners to button
@@ -707,13 +707,10 @@ public class colorGameFrame extends javax.swing.JFrame {
                 overlapCounter++;
                 break;
             }
-            
             else {
                 randomNum = rand.nextInt(20) + 1;
             }
-            
         }
-        
         return randomNum;
     }
     
@@ -750,5 +747,4 @@ public class colorGameFrame extends javax.swing.JFrame {
         }
         return -1;
     }
-    
 }
