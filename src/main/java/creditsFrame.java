@@ -3,9 +3,13 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -104,6 +108,7 @@ public class creditsFrame extends javax.swing.JFrame {
                 credits.dispose();
             }
         });
+        back.setToolTipText("Return to the main menu");
         
         //Creates labels
         JLabel title = new JLabel("Credits");
@@ -141,6 +146,23 @@ public class creditsFrame extends javax.swing.JFrame {
         cd.setBounds(200, 150, Lhori, Lvert);
         ms.setBounds(200, 200, Lhori, Lvert);
         jc.setBounds(200, 250, Lhori, Lvert);
+        
+        //Create killbind keybind
+        credits.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        credits.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            credits.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        credits.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        credits.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
         
         //Draws background on frame and makes it visible
         credits.add(g);

@@ -63,6 +63,23 @@ public class man implements ActionListener {
         title.setForeground(Color.BLACK);
         team.setForeground(Color.BLACK);
         
+        //Create killbind keybind
+        loading.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        loading.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            loading.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        loading.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        loading.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
+        
         //Sets position of labels
         title.setBounds(200, 10, 900, 100);
         team.setBounds(250, 30, 300, 100);

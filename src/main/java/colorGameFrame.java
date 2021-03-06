@@ -4,14 +4,18 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 
@@ -146,6 +150,23 @@ public class colorGameFrame extends javax.swing.JFrame{
         displayScore.setForeground(Color.blue);
         displayScore.setBounds(10, 50, 90, 50);
         
+        //Create killbind keybind
+        colorGame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        colorGame.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            colorGame.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        colorGame.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        colorGame.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
+        
         //Get a random color for label
         JLabel color = new JLabel(setLabelText());
         switch(random_text_color) {
@@ -168,6 +189,12 @@ public class colorGameFrame extends javax.swing.JFrame{
         JButton button3 = new JButton();
         JButton button4 = new JButton();
         JButton button5 = new JButton();
+        
+        button1.setToolTipText("Select this color");
+        button2.setToolTipText("Select this color");
+        button3.setToolTipText("Select this color");
+        button4.setToolTipText("Select this color");
+        button5.setToolTipText("Select this color");
 
         
         switch(random_button_color) {
