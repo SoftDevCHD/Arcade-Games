@@ -242,7 +242,7 @@ public class colorGameFrame extends javax.swing.JFrame{
                 }
                     
                 if (--rounds == 0) {
-                    gameOverFrame.gameOverFrame(score);
+                    sudokuGameFrame.sudokuGameFrame(score);
                     colorGame.dispose();
                 }
                 
@@ -329,7 +329,7 @@ public class colorGameFrame extends javax.swing.JFrame{
                }
                
                 if (--rounds == 0) {
-                    gameOverFrame.gameOverFrame(score);
+                    sudokuGameFrame.sudokuGameFrame(score);
                     colorGame.dispose();
                 }
                 
@@ -416,7 +416,7 @@ public class colorGameFrame extends javax.swing.JFrame{
                 }
                 
                 if (--rounds == 0) {
-                    gameOverFrame.gameOverFrame(score);
+                    sudokuGameFrame.sudokuGameFrame(score);
                     colorGame.dispose();
                 }
                 
@@ -503,7 +503,7 @@ public class colorGameFrame extends javax.swing.JFrame{
                 }
                 
                 if (--rounds == 0) {
-                    gameOverFrame.gameOverFrame(score);
+                    sudokuGameFrame.sudokuGameFrame(score);
                     colorGame.dispose();
                 }
                 
@@ -590,7 +590,7 @@ public class colorGameFrame extends javax.swing.JFrame{
                 }
                 
                 if (--rounds == 0) {
-                    gameOverFrame.gameOverFrame(score);
+                    sudokuGameFrame.sudokuGameFrame(score);
                     colorGame.dispose();
                 }
                 

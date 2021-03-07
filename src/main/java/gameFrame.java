@@ -1472,7 +1472,7 @@ public class gameFrame extends javax.swing.JFrame {
         JButton skip = new JButton("Skip"); //Creates button
         skip.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                colorGameFrame.colorGameFrame(score);
+                colorGameFrame.colorGameFrame(0);
                 game.dispose();
             }
         });
