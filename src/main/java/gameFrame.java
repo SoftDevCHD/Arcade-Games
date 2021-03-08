@@ -4,13 +4,17 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Random;
+import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.KeyStroke;
 import javax.swing.Timer;
 
 /*
@@ -245,6 +249,23 @@ public class gameFrame extends javax.swing.JFrame {
         displayLines.setBounds(220, ldown, 200, 50);
         displayLines.setFont(new Font("Verdana", Font.BOLD, 18));
         game.add(displayLines);
+        
+        //Create killbind keybind
+        game.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        game.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            game.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        game.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        game.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
         
         //Buttons
         JButton a = new JButton("A");
@@ -1451,10 +1472,39 @@ public class gameFrame extends javax.swing.JFrame {
         JButton skip = new JButton("Skip"); //Creates button
         skip.addActionListener(new ActionListener() {   //Adds action listeners to button
             public void actionPerformed(ActionEvent e) {
-                colorGameFrame.colorGameFrame(score);
+                colorGameFrame.colorGameFrame(0);
                 game.dispose();
             }
         });
+        skip.setToolTipText("Skip this game (Recieve score of 0)");
+        
+        //Set letter tooltips
+        a.setToolTipText("Select this letter");
+        b.setToolTipText("Select this letter");
+        c.setToolTipText("Select this letter");
+        d.setToolTipText("Select this letter");
+        ee.setToolTipText("Select this letter");
+        f.setToolTipText("Select this letter");
+        gg.setToolTipText("Select this letter");
+        h.setToolTipText("Select this letter");
+        i.setToolTipText("Select this letter");
+        j.setToolTipText("Select this letter");
+        k.setToolTipText("Select this letter");
+        l.setToolTipText("Select this letter");
+        m.setToolTipText("Select this letter");
+        n.setToolTipText("Select this letter");
+        o.setToolTipText("Select this letter");
+        p.setToolTipText("Select this letter");
+        q.setToolTipText("Select this letter");
+        r.setToolTipText("Select this letter");
+        s.setToolTipText("Select this letter");
+        t.setToolTipText("Select this letter");
+        u.setToolTipText("Select this letter");
+        v.setToolTipText("Select this letter");
+        w.setToolTipText("Select this letter");
+        x.setToolTipText("Select this letter");
+        y.setToolTipText("Select this letter");
+        z.setToolTipText("Select this letter");
         
         //Set fonts
         clock.setFont(new Font("Verdana", Font.BOLD, 12));

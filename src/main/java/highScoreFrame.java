@@ -3,15 +3,17 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -110,6 +112,7 @@ public class highScoreFrame extends javax.swing.JFrame {
                 highScore.dispose();
             }
         });
+        back.setToolTipText("Return to the main menu");
         
         //Setting up file
         String score1 = "", name1= "", score2= "", name2= "", score3= "", name3= "", score4= "", name4= "";
@@ -167,6 +170,23 @@ public class highScoreFrame extends javax.swing.JFrame {
         display2.setBounds(220, 120, Lhori, Lvert);
         display3.setBounds(220, 170, Lhori, Lvert);
         display4.setBounds(220, 220, Lhori, Lvert);
+        
+        //Create killbind keybind
+        highScore.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        highScore.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            highScore.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        highScore.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        highScore.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
         
         //Draws background on frame and makes it visible
         highScore.add(g);

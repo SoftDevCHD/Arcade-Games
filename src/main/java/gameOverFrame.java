@@ -3,6 +3,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -12,7 +13,10 @@ import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -218,6 +222,9 @@ public class gameOverFrame extends javax.swing.JFrame {
             }
         });
         
+        retry.setToolTipText("Start over and return to the main menu");
+        exit.setToolTipText("Close the program");
+        
         //Creating labels
         JLabel title = new JLabel("GAME OVER");
         title.setFont(new Font("Verdana", Font.BOLD, 18));
@@ -239,6 +246,23 @@ public class gameOverFrame extends javax.swing.JFrame {
         //Determines the size and position of the buttons
         retry.setBounds(450, 350, Dhori, Dvert);
         exit.setBounds(30, 350, Dhori, Dvert);
+        
+        //Create killbind keybind
+        gameOver.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
+        gameOver.getRootPane().getActionMap().put("EXIT", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+            gameOver.dispose();
+            System.exit(0);
+            }
+        });
+        
+        //KeyBindings: Popup
+        gameOver.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("F1"), "POPUP");
+        gameOver.getRootPane().getActionMap().put("POPUP", new AbstractAction() {
+            public void actionPerformed(ActionEvent e) {
+                popup.popWindow();
+            }
+        });
         
         //Draws background on frame and makes it visible
         gameOver.add(g);
