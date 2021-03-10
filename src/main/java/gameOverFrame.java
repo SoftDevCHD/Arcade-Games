@@ -204,7 +204,7 @@ public class gameOverFrame extends javax.swing.JFrame {
             System.out.println("Error, file not found");
         }
         
-        
+
         JButton retry = new JButton("Retry");   //Creates button
         retry.addActionListener(new ActionListener() {  //Adds action listener to button
             public void actionPerformed(ActionEvent e) {
