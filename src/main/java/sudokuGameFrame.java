@@ -602,6 +602,7 @@ public class sudokuGameFrame implements ActionListener{
         //Add Listeners to buttons
         submit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                attempts++;
                 int n = 0;
                 gameVerification(sudoku);
                 if (!integrity) return;
@@ -637,8 +638,14 @@ public class sudokuGameFrame implements ActionListener{
         });
         quit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                sudoku.dispose();
-                gameOverFrame.gameOverFrame(score);
+                if (attempts > 0) {
+                    sudoku.dispose();
+                    gameOverFrame.gameOverFrame(score + sudokuScore);
+                }
+                else {
+                    sudoku.dispose();
+                    gameOverFrame.gameOverFrame(score);
+                }
             }
         });
         
