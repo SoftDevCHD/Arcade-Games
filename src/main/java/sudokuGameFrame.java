@@ -404,18 +404,6 @@ public class sudokuGameFrame implements ActionListener{
         sudoku.add(q9_5);
         sudoku.add(q9_9);
         
-        /*
-        q11.setBounds(baseHori + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q12.setBounds(baseHori + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q13.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q14.setBounds(baseHori + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q15.setBounds(baseHori + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q16.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q17.setBounds(baseHori + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q18.setBounds(baseHori + lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q19.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        */
-        
         //Creating textboxes
         q12 = new JTextField(1);
         q13 = new JTextField(1);
@@ -633,6 +621,9 @@ public class sudokuGameFrame implements ActionListener{
                         sudoku.dispose();
                         sudokuGameFrame(score);
                     }
+                }
+                else {
+                    JOptionPane.showMessageDialog(sudoku, "Some of your answers are incorrect", "Incorrect answer", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
