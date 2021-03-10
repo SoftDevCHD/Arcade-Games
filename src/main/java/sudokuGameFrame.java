@@ -19,20 +19,20 @@ import javax.imageio.*;
 import javax.swing.*;
 
 public class sudokuGameFrame implements ActionListener{
-    private static JTextField q11;
     private static JTextField q12;
     private static JTextField q13;
     private static JTextField q14;
     private static JTextField q15;
     private static JTextField q16;
     private static JTextField q17;
-    private static JTextField q21;
+    private static JTextField q19;
     private static JTextField q22;
-    private static JTextField q23;
+    private static JTextField q28;
     private static JTextField q24;
     private static JTextField q25;
     private static JTextField q26;
     private static JTextField q27;
+    private static JTextField q29;
     private static JTextField q31;
     private static JTextField q32;
     private static JTextField q35;
@@ -73,6 +73,117 @@ public class sudokuGameFrame implements ActionListener{
     private static JTextField q96;
     private static JTextField q97;
     private static JTextField q98;
+    
+    private static boolean b12 = true;
+    private static boolean b13 = true;
+    private static boolean b14 = true;
+    private static boolean b15 = true;
+    private static boolean b16 = true;
+    private static boolean b17 = true;
+    private static boolean b19 = true;
+    private static boolean b22 = true;
+    private static boolean b24 = true;
+    private static boolean b25 = true;
+    private static boolean b26 = true;
+    private static boolean b27 = true;
+    private static boolean b28 = true;
+    private static boolean b29 = true;
+    private static boolean b31 = true;
+    private static boolean b32 = true;
+    private static boolean b35 = true;
+    private static boolean b36 = true;
+    private static boolean b39 = true;
+    private static boolean b42 = true;
+    private static boolean b44 = true;
+    private static boolean b45 = true;
+    private static boolean b46 = true;
+    private static boolean b47 = true;
+    private static boolean b51 = true;
+    private static boolean b53 = true;
+    private static boolean b54 = true;
+    private static boolean b56 = true;
+    private static boolean b57 = true;
+    private static boolean b59 = true;
+    private static boolean b63 = true;
+    private static boolean b64 = true;
+    private static boolean b65 = true;
+    private static boolean b66 = true;
+    private static boolean b68 = true;
+    private static boolean b71 = true;
+    private static boolean b74 = true;
+    private static boolean b75 = true;
+    private static boolean b78 = true;
+    private static boolean b79 = true;
+    private static boolean b81 = true;
+    private static boolean b82 = true;
+    private static boolean b83 = true;
+    private static boolean b84 = true;
+    private static boolean b85 = true;
+    private static boolean b86 = true;
+    private static boolean b88 = true;
+    private static boolean b91 = true;
+    private static boolean b93 = true;
+    private static boolean b94 = true;
+    private static boolean b95 = true;
+    private static boolean b96 = true;
+    private static boolean b97 = true;
+    private static boolean b98 = true;
+    
+    private static boolean e12 = true;
+    private static boolean e13 = true;
+    private static boolean e14 = true;
+    private static boolean e15 = true;
+    private static boolean e16 = true;
+    private static boolean e17 = true;
+    private static boolean e19 = true;
+    private static boolean e22 = true;
+    private static boolean e24 = true;
+    private static boolean e25 = true;
+    private static boolean e26 = true;
+    private static boolean e27 = true;
+    private static boolean e28 = true;
+    private static boolean e29 = true;
+    private static boolean e31 = true;
+    private static boolean e32 = true;
+    private static boolean e35 = true;
+    private static boolean e36 = true;
+    private static boolean e39 = true;
+    private static boolean e42 = true;
+    private static boolean e44 = true;
+    private static boolean e45 = true;
+    private static boolean e46 = true;
+    private static boolean e47 = true;
+    private static boolean e51 = true;
+    private static boolean e53 = true;
+    private static boolean e54 = true;
+    private static boolean e56 = true;
+    private static boolean e57 = true;
+    private static boolean e59 = true;
+    private static boolean e63 = true;
+    private static boolean e64 = true;
+    private static boolean e65 = true;
+    private static boolean e66 = true;
+    private static boolean e68 = true;
+    private static boolean e71 = true;
+    private static boolean e74 = true;
+    private static boolean e75 = true;
+    private static boolean e78 = true;
+    private static boolean e79 = true;
+    private static boolean e81 = true;
+    private static boolean e82 = true;
+    private static boolean e83 = true;
+    private static boolean e84 = true;
+    private static boolean e85 = true;
+    private static boolean e86 = true;
+    private static boolean e88 = true;
+    private static boolean e91 = true;
+    private static boolean e93 = true;
+    private static boolean e94 = true;
+    private static boolean e95 = true;
+    private static boolean e96 = true;
+    private static boolean e97 = true;
+    private static boolean e98 = true;
+
 
     private static int sudokuScore = 540;
     static int attempts = 0;
@@ -101,6 +212,66 @@ public class sudokuGameFrame implements ActionListener{
         
         //Create background and game board
         gameBoard g = new gameBoard();
+        
+        //This is here so that the game can be replayed if you click retry from gameOverScreen
+        error = 0;
+        sudokuScore = 540;
+        b12 = true;
+        b13 = true;
+        b14 = true;
+        b15 = true;
+        b16 = true;
+        b17 = true;
+        b19 = true;
+        b22 = true;
+        b24 = true;
+        b25 = true;
+        b26 = true;
+        b27 = true;
+        b28 = true;
+        b29 = true;
+        b31 = true;
+        b32 = true;
+        b35 = true;
+        b36 = true;
+        b39 = true;
+        b42 = true;
+        b44 = true;
+        b45 = true;
+        b46 = true;
+        b47 = true;
+        b51 = true;
+        b53 = true;
+        b54 = true;
+        b56 = true;
+        b57 = true;
+        b59 = true;
+        b63 = true;
+        b64 = true;
+        b65 = true;
+        b66 = true;
+        b68 = true;
+        b71 = true;
+        b74 = true;
+        b75 = true;
+        b78 = true;
+        b79 = true;
+        b81 = true;
+        b82 = true;
+        b83 = true;
+        b84 = true;
+        b85 = true;
+        b86 = true;
+        b88 = true;
+        b91 = true;
+        b93 = true;
+        b94 = true;
+        b95 = true;
+        b96 = true;
+        b97 = true;
+        b98 = true;
+
+
         
         //Create killbind keybind
         sudoku.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0), "EXIT");
@@ -246,20 +417,20 @@ public class sudokuGameFrame implements ActionListener{
         */
         
         //Creating textboxes
-        q11 = new JTextField(1);
         q12 = new JTextField(1);
         q13 = new JTextField(1);
         q14 = new JTextField(1);
         q15 = new JTextField(1);
         q16 = new JTextField(1);
         q17 = new JTextField(1);
-        q21 = new JTextField(1);
+        q19 = new JTextField(1);
         q22 = new JTextField(1);
-        q23 = new JTextField(1);
+        q28 = new JTextField(1);
         q24 = new JTextField(1);
         q25 = new JTextField(1);
         q26 = new JTextField(1);
         q27 = new JTextField(1);
+        q29 = new JTextField(1);
         q31 = new JTextField(1);
         q32 = new JTextField(1);
         q35 = new JTextField(1);
@@ -300,20 +471,20 @@ public class sudokuGameFrame implements ActionListener{
         q96 = new JTextField(1);
         q97 = new JTextField(1);
         q98 = new JTextField(1);
-        q11.setBounds(baseHori + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q12.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q13.setBounds(baseHori + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q14.setBounds(baseHori + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q15.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q16.setBounds(baseHori + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q17.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q21.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
-        q22.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q23.setBounds(baseHori + squareOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q24.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q25.setBounds(baseHori + squareOffset + 2*lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
-        q26.setBounds(baseHori + squareOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        q27.setBounds(baseHori + squareOffset + 2*lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
+        q12.setBounds(baseHori + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
+        q13.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
+        q14.setBounds(baseHori + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q15.setBounds(baseHori + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q16.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q17.setBounds(baseHori + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
+        q19.setBounds(baseHori + 2*lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
+        q22.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
+        q24.setBounds(baseHori + squareOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q25.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q26.setBounds(baseHori + squareOffset + 2*lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
+        q27.setBounds(baseHori + squareOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
+        q28.setBounds(baseHori + squareOffset + lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
+        q29.setBounds(baseHori + squareOffset + 2*lineOffset + textOffset, baseVert + 2*lineOffset + textOffset, textboxSize, textboxSize);
         q31.setBounds(baseHori + 2*squareOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
         q32.setBounds(baseHori + 2*squareOffset + lineOffset + textOffset, baseVert + textOffset, textboxSize, textboxSize);
         q35.setBounds(baseHori + 2*squareOffset + lineOffset + textOffset, baseVert + lineOffset + textOffset, textboxSize, textboxSize);
@@ -354,20 +525,20 @@ public class sudokuGameFrame implements ActionListener{
         q96.setBounds(baseHori + 2*squareOffset + 2*lineOffset + textOffset, baseVert + 2*squareOffset + lineOffset + textOffset, textboxSize, textboxSize);
         q97.setBounds(baseHori + 2*squareOffset + textOffset, baseVert + 2*lineOffset + 2*squareOffset + textOffset, textboxSize, textboxSize);
         q98.setBounds(baseHori + 2*squareOffset + lineOffset + textOffset, baseVert + 2*squareOffset + 2*lineOffset + textOffset, textboxSize, textboxSize);
-        sudoku.add(q11);
         sudoku.add(q12);
         sudoku.add(q13);
         sudoku.add(q14);
         sudoku.add(q15);
         sudoku.add(q16);
         sudoku.add(q17);
-        sudoku.add(q21);
+        sudoku.add(q19);
         sudoku.add(q22);
-        sudoku.add(q23);
+        sudoku.add(q28);
         sudoku.add(q24);
         sudoku.add(q25);
         sudoku.add(q26);
         sudoku.add(q27);
+        sudoku.add(q29);
         sudoku.add(q31);
         sudoku.add(q32);
         sudoku.add(q35);
@@ -434,25 +605,35 @@ public class sudokuGameFrame implements ActionListener{
                 int n = 0;
                 gameVerification(sudoku);
                 if (!integrity) return;
-                if (error == 0) {
+                if (e12 && e13 && e14 && e15 && e16 && e17 && e19 && e22 && e24 && e25 && e26 && e27 && e28 && e29 && e31 && e32 && e35 && e36 && e39 && e42 && e44 && e45 && e46 && e47
+                        && e51 && e53 && e54 && e56 && e57 && e59 && e63 && e64 && e65 && e66 && e68 && e71 && e74 && e75 && e78 && e79 && e81 && e82 && e83 && e84 && e85 && e86 
+                        && e88 && e91 && e93 && e94 && e95 && e96 && e97 && e98) {
                     sudoku.dispose();
                     gameOverFrame.gameOverFrame(score + sudokuScore);
                 }
-                else if (error == 1) {
+                else if (!e12 && !e13 && !e14 && !e15 && !e16 && !e17 && !e19 && !e22 && !e24 && !e25 && !e26 && !e27 && !e28 && !e29 && !e31 && !e32 && !e35 && !e36 && !e39 && !e42 && !e44 
+                        && !e45 && !e46 && !e47 && !e51 && !e53 && !e54 && !e56 && !e57 && !e59 && !e63 && !e64 && !e65 && !e66 && !e68 && !e71 && !e74 && !e75 && !e78 && !e79 && !e81 
+                        && !e82 && !e83 && !e84 && !e85 && !e86 && !e88 && !e91 && !e93 && !e94 && !e95 && !e96 && !e97 && !e98) {
                     String[] options = {"Try again", "Submit"};
                     n = JOptionPane.showOptionDialog(sudoku,
-                            "Your board has mistakes. Do you still want to submit?",
+                            "You have lost all of your points. Do you still want to submit?",
                             "Incorrect Solution",
                             JOptionPane.YES_NO_OPTION,
                             JOptionPane.QUESTION_MESSAGE,
                             null,
                             options,
                             options[0]);
-                }
-                if (n != JOptionPane.YES_OPTION) {
+                    
+                    if (n == JOptionPane.NO_OPTION) {
                     sudoku.dispose();
                     gameOverFrame.gameOverFrame(score + sudokuScore);
+                    }
+                    else if (n == JOptionPane.YES_OPTION) {
+                        sudoku.dispose();
+                        sudokuGameFrame(score);
+                    }
                 }
+                
             }
         });
         quit.addActionListener(new ActionListener() {
@@ -479,23 +660,22 @@ public class sudokuGameFrame implements ActionListener{
     
     // Game logic
     static void gameVerification(JFrame f) {
-        error = 0;
         try {
             if (
-            Integer.parseInt(q11.getText()) < 1 || Integer.parseInt(q11.getText()) > 9 ||
             Integer.parseInt(q12.getText()) < 1 || Integer.parseInt(q12.getText()) > 9 ||
             Integer.parseInt(q13.getText()) < 1 || Integer.parseInt(q13.getText()) > 9 ||
             Integer.parseInt(q14.getText()) < 1 || Integer.parseInt(q14.getText()) > 9 ||
             Integer.parseInt(q15.getText()) < 1 || Integer.parseInt(q15.getText()) > 9 ||
             Integer.parseInt(q16.getText()) < 1 || Integer.parseInt(q16.getText()) > 9 ||
             Integer.parseInt(q17.getText()) < 1 || Integer.parseInt(q17.getText()) > 9 ||
-            Integer.parseInt(q21.getText()) < 1 || Integer.parseInt(q21.getText()) > 9 ||
+            Integer.parseInt(q19.getText()) < 1 || Integer.parseInt(q19.getText()) > 9 ||
             Integer.parseInt(q22.getText()) < 1 || Integer.parseInt(q22.getText()) > 9 ||
-            Integer.parseInt(q23.getText()) < 1 || Integer.parseInt(q23.getText()) > 9 ||
+            Integer.parseInt(q28.getText()) < 1 || Integer.parseInt(q28.getText()) > 9 ||
             Integer.parseInt(q24.getText()) < 1 || Integer.parseInt(q24.getText()) > 9 ||
             Integer.parseInt(q25.getText()) < 1 || Integer.parseInt(q25.getText()) > 9 ||
             Integer.parseInt(q26.getText()) < 1 || Integer.parseInt(q26.getText()) > 9 ||
             Integer.parseInt(q27.getText()) < 1 || Integer.parseInt(q27.getText()) > 9 ||
+            Integer.parseInt(q29.getText()) < 1 || Integer.parseInt(q29.getText()) > 9 ||
             Integer.parseInt(q31.getText()) < 1 || Integer.parseInt(q31.getText()) > 9 ||
             Integer.parseInt(q32.getText()) < 1 || Integer.parseInt(q32.getText()) > 9 ||
             Integer.parseInt(q35.getText()) < 1 || Integer.parseInt(q35.getText()) > 9 ||
@@ -536,136 +716,129 @@ public class sudokuGameFrame implements ActionListener{
             Integer.parseInt(q96.getText()) < 1 || Integer.parseInt(q96.getText()) > 9 ||
             Integer.parseInt(q97.getText()) < 1 || Integer.parseInt(q97.getText()) > 9 ||
             Integer.parseInt(q98.getText()) < 1 || Integer.parseInt(q98.getText()) > 9) {
-                JOptionPane.showMessageDialog(f,
-                    "Some of your values aren't between 1 and 9...",
-                    "Input Error",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(f, "Some of your values aren't between 1 and 9...", "Input Error", JOptionPane.ERROR_MESSAGE);
                 integrity = false;
                 return;
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(f,
-                    "Some of your boxes have invalid data",
-                    "Input Error",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(f, "Some of your boxes have invalid data", "Input Error", JOptionPane.ERROR_MESSAGE);
             integrity = false;
             return;
         }
         integrity = true;
-        if (attempts == 0) {
-            if (!q11.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q12.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q13.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q14.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q15.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q16.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q17.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q21.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-            if (!q22.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q23.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q24.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q25.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q26.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q27.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q31.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q32.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q35.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q36.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-            if (!q39.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q42.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q44.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-            if (!q45.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q46.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q47.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q51.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-            if (!q53.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q54.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q56.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q57.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q59.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q63.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q64.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q65.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q66.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q68.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q71.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q74.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q75.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q78.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q79.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q81.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q82.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q83.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-            if (!q84.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q85.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q86.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q88.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q91.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q93.getText().equals("4")) {sudokuScore -= 10; error = 1;}
-            if (!q94.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q95.getText().equals("7")) {sudokuScore -= 10; error = 1;}
-            if (!q96.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q97.getText().equals("8")) {sudokuScore -= 10; error = 1;}
-            if (!q98.getText().equals("1")) {sudokuScore -= 10; error = 1;}
-        }
-        else {
-            if (!q11.getText().equals("3")) { error = 1;}
-            if (!q12.getText().equals("5")) { error = 1;}
-            if (!q13.getText().equals("2")) { error = 1;}
-            if (!q14.getText().equals("9")) { error = 1;}
-            if (!q15.getText().equals("6")) { error = 1;}
-            if (!q16.getText().equals("4")) { error = 1;}
-            if (!q17.getText().equals("7")) { error = 1;}
-            if (!q21.getText().equals("1")) { error = 1;}
-            if (!q22.getText().equals("8")) { error = 1;}
-            if (!q23.getText().equals("5")) { error = 1;}
-            if (!q24.getText().equals("7")) { error = 1;}
-            if (!q25.getText().equals("2")) { error = 1;}
-            if (!q26.getText().equals("9")) { error = 1;}
-            if (!q27.getText().equals("3")) { error = 1;}
-            if (!q31.getText().equals("9")) { error = 1;}
-            if (!q32.getText().equals("2")) { error = 1;}
-            if (!q35.getText().equals("3")) { error = 1;}
-            if (!q36.getText().equals("1")) { error = 1;}
-            if (!q39.getText().equals("8")) { error = 1;}
-            if (!q42.getText().equals("6")) { error = 1;}
-            if (!q44.getText().equals("1")) { error = 1;}
-            if (!q45.getText().equals("2")) { error = 1;}
-            if (!q46.getText().equals("3")) { error = 1;}
-            if (!q47.getText().equals("7")) { error = 1;}
-            if (!q51.getText().equals("1")) { error = 1;}
-            if (!q53.getText().equals("4")) { error = 1;}
-            if (!q54.getText().equals("6")) { error = 1;}
-            if (!q56.getText().equals("8")) { error = 1;}
-            if (!q57.getText().equals("5")) { error = 1;}
-            if (!q59.getText().equals("9")) { error = 1;}
-            if (!q63.getText().equals("2")) { error = 1;}
-            if (!q64.getText().equals("5")) { error = 1;}
-            if (!q65.getText().equals("4")) { error = 1;}
-            if (!q66.getText().equals("9")) { error = 1;}
-            if (!q68.getText().equals("6")) { error = 1;}
-            if (!q71.getText().equals("6")) { error = 1;}
-            if (!q74.getText().equals("9")) { error = 1;}
-            if (!q75.getText().equals("8")) { error = 1;}
-            if (!q78.getText().equals("7")) { error = 1;}
-            if (!q79.getText().equals("4")) { error = 1;}
-            if (!q81.getText().equals("7")) { error = 1;}
-            if (!q82.getText().equals("8")) { error = 1;}
-            if (!q83.getText().equals("1")) { error = 1;}
-            if (!q84.getText().equals("3")) { error = 1;}
-            if (!q85.getText().equals("4")) { error = 1;}
-            if (!q86.getText().equals("5")) { error = 1;}
-            if (!q88.getText().equals("6")) { error = 1;}
-            if (!q91.getText().equals("3")) { error = 1;}
-            if (!q93.getText().equals("4")) { error = 1;}
-            if (!q94.getText().equals("2")) { error = 1;}
-            if (!q95.getText().equals("7")) { error = 1;}
-            if (!q96.getText().equals("6")) { error = 1;}
-            if (!q97.getText().equals("8")) { error = 1;}
-            if (!q98.getText().equals("1")) { error = 1;}
-        }
+            if (!q12.getText().equals("3")) {if(b12) {sudokuScore -= 10; error++;} b12 = false; e12 = false;}
+            else if (q12.getText().equals("3")) {if(!e12) {error--; e12 = true;} e12 = true;}
+            if (!q13.getText().equals("5")) {if(b13) {sudokuScore -= 10; error++;} b13 = false; e13 = false;}
+            else if (q13.getText().equals("5")) {if(!e13) {error--; e13 = true;} e13 = true;}
+            if (!q14.getText().equals("2")) {if(b14) {sudokuScore -= 10; error++;} b14 = false; e14 = false;}
+            else if (q14.getText().equals("2")) {if(!e14) {error--; e14 = true;} e14 = true;}
+            if (!q15.getText().equals("9")) {if(b15) {sudokuScore -= 10; error++;} b15 = false; e15 = false;}
+            else if (q15.getText().equals("9")) {if(!e15) {error--; e15 = true;} e15 = true;}
+            if (!q16.getText().equals("6")) {if(b16) {sudokuScore -= 10; error++;} b16 = false; e16 = false;}
+            else if (q16.getText().equals("6")) {if(!e16) {error--; e16 = true;} e16 = true;}
+            if (!q17.getText().equals("4")) {if(b17) {sudokuScore -= 10; error++;} b17 = false; e17 = false;}
+            else if (q17.getText().equals("4")) {if(!e17) {error--; e17 = true;} e17 = true;}
+            if (!q19.getText().equals("7")) {if(b19) {sudokuScore -= 10; error++;} b19 = false; e19 = false;}
+            else if (q19.getText().equals("7")) {if(!e19) {error--; e19 = true;} e19 = true;}
+            if (!q22.getText().equals("1")) {if(b22) {sudokuScore -= 10; error++;} b22 = false; e22 = false;}
+            else if (q22.getText().equals("1")) {if(!e22) {error--; e22 = true;} e22 = true;}
+            if (!q24.getText().equals("8")) {if(b24) {sudokuScore -= 10; error++;} b24 = false; e24 = false;}
+            else if (q24.getText().equals("8")) {if(!e24) {error--; e24 = true;} e24 = true;}
+            if (!q25.getText().equals("5")) {if(b25) {sudokuScore -= 10; error++;} b25 = false; e25 = false;}
+            else if (q25.getText().equals("5")) {if(!e25) {error--; e25 = true;} e25 = true;}
+            if (!q26.getText().equals("7")) {if(b26) {sudokuScore -= 10; error++;} b26 = false; e26 = false;}
+            else if (q26.getText().equals("7")) {if(!e26) {error--; e26 = true;} e26 = true;}
+            if (!q27.getText().equals("2")) {if(b27) {sudokuScore -= 10; error++;} b27 = false; e27 = false;}
+            else if (q27.getText().equals("2")) {if(!e27) {error--; e27 = true;} e27 = true;}
+            if (!q28.getText().equals("9")) {if(b28) {sudokuScore -= 10; error++;} b28 = false; e28 = false;}
+            else if (q28.getText().equals("9")) {if(!e28) {error--; e28 = true;} e28 = true;}
+            if (!q29.getText().equals("3")) {if(b29) {sudokuScore -= 10; error++;} b29 = false; e29 = false;}
+            else if (q29.getText().equals("3")) {if(!e29) {error--; e29 = true;} e29 = true;}
+            if (!q31.getText().equals("9")) {if(b31) {sudokuScore -= 10; error++;} b31 = false; e31 = false;}
+            else if (q31.getText().equals("9")) {if(!e31) {error--; e31 = true;} e31 = true;}
+            if (!q32.getText().equals("2")) {if(b32) {sudokuScore -= 10; error++;} b32 = false; e32 = false;}
+            else if (q32.getText().equals("2")) {if(!e32) {error--; e32 = true;} e32 = true;}
+            if (!q35.getText().equals("3")) {if(b35) {sudokuScore -= 10; error++;} b35 = false; e35 = false;}
+            else if (q35.getText().equals("3")) {if(!e35) {error--; e35 = true;} e35 = true;}
+            if (!q36.getText().equals("1")) {if(b36) {sudokuScore -= 10; error++;} b36 = false; e36 = false;}
+            else if (q36.getText().equals("1")) {if(!e36) {error--; e36 = true;} e36 = true;}
+            if (!q39.getText().equals("8")) {if(b39) {sudokuScore -= 10; error++;} b39 = false; e39 = false;}
+            else if (q39.getText().equals("8")) {if(!e39) {error--; e39 = true;} e39 = true;}
+            if (!q42.getText().equals("6")) {if(b42) {sudokuScore -= 10; error++;} b42 = false; e42 = false;}
+            else if (q42.getText().equals("6")) {if(!e42) {error--; e42 = true;} e42 = true;}
+            if (!q44.getText().equals("1")) {if(b44) {sudokuScore -= 10; error++;} b44 = false; e44 = false;}
+            else if (q44.getText().equals("1")) {if(!e44) {error--; e44 = true;} e44 = true;}
+            if (!q45.getText().equals("2")) {if(b45) {sudokuScore -= 10; error++;} b45 = false; e45 = false;}
+            else if (q45.getText().equals("2")) {if(!e45) {error--; e45 = true;} e45 = true;}
+            if (!q46.getText().equals("3")) {if(b46) {sudokuScore -= 10; error++;} b46 = false; e46 = false;}
+            else if (q46.getText().equals("3")) {if(!e46) {error--; e46 = true;} e46 = true;}
+            if (!q47.getText().equals("7")) {if(b47) {sudokuScore -= 10; error++;} b47 = false; e47 = false;}
+            else if (q47.getText().equals("7")) {if(!e47) {error--; e47 = true;} e47 = true;}
+            if (!q51.getText().equals("1")) {if(b51) {sudokuScore -= 10; error++;} b51 = false; e51 = false;}
+            else if (q51.getText().equals("1")) {if(!e51) {error--; e51 = true;} e51 = true;}
+            if (!q53.getText().equals("4")) {if(b53) {sudokuScore -= 10; error++;} b53 = false; e53 = false;}
+            else if (q53.getText().equals("4")) {if(!e53) {error--; e53 = true;} e53 = true;}
+            if (!q54.getText().equals("6")) {if(b54) {sudokuScore -= 10; error++;} b54 = false; e54 = false;}
+            else if (q54.getText().equals("6")) {if(!e54) {error--; e54 = true;} e54 = true;}
+            if (!q56.getText().equals("8")) {if(b56) {sudokuScore -= 10; error++;} b56 = false; e56 = false;}
+            else if (q56.getText().equals("8")) {if(!e56) {error--; e56 = true;} e56 = true;}
+            if (!q57.getText().equals("5")) {if(b57) {sudokuScore -= 10; error++;} b57 = false; e57 = false;}
+            else if (q57.getText().equals("5")) {if(!e57) {error--; e57 = true;} e57 = true;}
+            if (!q59.getText().equals("9")) {if(b59) {sudokuScore -= 10; error++;} b59 = false; e59 = false;}
+            else if (q59.getText().equals("9")) {if(!e59) {error--; e59 = true;} e59 = true;}
+            if (!q63.getText().equals("2")) {if(b63) {sudokuScore -= 10; error++;} b63 = false; e63 = false;}
+            else if (q63.getText().equals("2")) {if(!e63) {error--; e63 = true;} e63 = true;}
+            if (!q64.getText().equals("5")) {if(b64) {sudokuScore -= 10; error++;} b64 = false; e64 = false;}
+            else if (q64.getText().equals("5")) {if(!e64) {error--; e64 = true;} e64 = true;}
+            if (!q65.getText().equals("4")) {if(b65) {sudokuScore -= 10; error++;} b65 = false; e65 = false;}
+            else if (q65.getText().equals("4")) {if(!e65) {error--; e65 = true;} e65 = true;}
+            if (!q66.getText().equals("9")) {if(b66) {sudokuScore -= 10; error++;} b66 = false; e66 = false;}
+            else if (q66.getText().equals("9")) {if(!e66) {error--; e66 = true;} e66 = true;}
+            if (!q68.getText().equals("6")) {if(b68) {sudokuScore -= 10; error++;} b68 = false; e68 = false;}
+            else if (q68.getText().equals("6")) {if(!e68) {error--; e68 = true;} e68 = true;}
+            if (!q71.getText().equals("6")) {if(b71) {sudokuScore -= 10; error++;} b71 = false; e71 = false;}
+            else if (q71.getText().equals("6")) {if(!e71) {error--; e71 = true;} e71 = true;}
+            if (!q74.getText().equals("9")) {if(b74) {sudokuScore -= 10; error++;} b74 = false; e74 = false;}
+            else if (q74.getText().equals("9")) {if(!e74) {error--; e74 = true;} e64 = true;}
+            if (!q75.getText().equals("8")) {if(b75) {sudokuScore -= 10; error++;} b75 = false; e75 = false;}
+            else if (q75.getText().equals("8")) {if(!e75) {error--; e75 = true;} e75 = true;}
+            if (!q78.getText().equals("7")) {if(b78) {sudokuScore -= 10; error++;} b78 = false; e78 = false;}
+            else if (q78.getText().equals("7")) {if(!e78) {error--; e78 = true;} e78 = true;}
+            if (!q79.getText().equals("4")) {if(b79) {sudokuScore -= 10; error++;} b79 = false; e79 = false;}
+            else if (q79.getText().equals("4")) {if(!e79) {error--; e79 = true;} e79 = true;}
+            if (!q81.getText().equals("7")) {if(b81) {sudokuScore -= 10; error++;} b81 = false; e81 = false;}
+            else if (q81.getText().equals("7")) {if(!e81) {error--; e81 = true;} e81 = true;}
+            if (!q82.getText().equals("8")) {if(b82) {sudokuScore -= 10; error++;} b82 = false; e82 = false;}
+            else if (q82.getText().equals("8")) {if(!e82) {error--; e82 = true;} e82 = true;}
+            if (!q83.getText().equals("1")) {if(b83) {sudokuScore -= 10; error++;} b83 = false; e83 = false;}
+            else if (q83.getText().equals("1")) {if(!e83) {error--; e83 = true;} e83 = true;}
+            if (!q84.getText().equals("3")) {if(b84) {sudokuScore -= 10; error++;} b84 = false; e84 = false;}
+            else if (q84.getText().equals("3")) {if(!e84) {error--; e84 = true;} e84 = true;}
+            if (!q85.getText().equals("4")) {if(b85) {sudokuScore -= 10; error++;} b85 = false; e85 = false;}
+            else if (q85.getText().equals("4")) {if(!e85) {error--; e85 = true;} e85 = true;}
+            if (!q86.getText().equals("5")) {if(b86) {sudokuScore -= 10; error++;} b86 = false; e86 = false;}
+            else if (q86.getText().equals("5")) {if(!e86) {error--; e86 = true;} e86 = true;}
+            if (!q88.getText().equals("6")) {if(b88) {sudokuScore -= 10; error++;} b88 = false; e88 = false;}
+            else if (q88.getText().equals("6")) {if(!e88) {error--; e88 = true;} e88 = true;}
+            if (!q91.getText().equals("3")) {if(b91) {sudokuScore -= 10; error++;} b91 = false; e91 = false;}
+            else if (q91.getText().equals("3")) {if(!e91) {error--; e91 = true;} e91 = true;}
+            if (!q93.getText().equals("4")) {if(b93) {sudokuScore -= 10; error++;} b93 = false; e93 = false;}
+            else if (q93.getText().equals("4")) {if(!e93) {error--; e93 = true;} e93 = true;}
+            if (!q94.getText().equals("2")) {if(b94) {sudokuScore -= 10; error++;} b94 = false; e94 = false;}
+            else if (q94.getText().equals("2")) {if(!e94) {error--; e94 = true;} e94 = true;}
+            if (!q95.getText().equals("7")) {if(b95) {sudokuScore -= 10; error++;} b95 = false; e95 = false;}
+            else if (q95.getText().equals("7")) {if(!e95) {error--; e95 = true;} e95 = true;}
+            if (!q96.getText().equals("6")) {if(b96) {sudokuScore -= 10; error++;} b96 = false; e96 = false;}
+            else if (q96.getText().equals("6")) {if(!e96) {error--; e96 = true;} e96 = true;}
+            if (!q97.getText().equals("8")) {if(b97) {sudokuScore -= 10; error++;} b97 = false; e97 = false;}
+            else if (q97.getText().equals("8")) {if(!e97) {error--; e97 = true;} e97 = true;}
+            if (!q98.getText().equals("1")) {if(b98) {sudokuScore -= 10; error++;} b98 = false; e98 = false;}
+            else if (q98.getText().equals("1")) {if(!e98) {error--; e98 = true;} e98 = true;}
 
-        attempts = 1;
+            //Format if statements as if (!q98.getText().equals("1")) {if(b98) {sudokuScore -= 10;} b98 = false; e98 = false; error++;}
+            //Remeber to reset booleans in main function so you can retry, and program "try again" button for if sudoku is completeley wrong (It will be easier to just reload the page)
+        System.out.println(error);
+        System.out.println(sudokuScore);
     }
 }
 
