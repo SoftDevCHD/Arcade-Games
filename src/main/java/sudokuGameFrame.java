@@ -553,12 +553,12 @@ public class sudokuGameFrame implements ActionListener{
         }
         integrity = true;
         if (attempts == 0) {
-            if (!q11.getText().equals("3")) {sudokuScore -= 10; error = 1;}
-            if (!q12.getText().equals("5")) {sudokuScore -= 10; error = 1;}
-            if (!q13.getText().equals("2")) {sudokuScore -= 10; error = 1;}
-            if (!q14.getText().equals("9")) {sudokuScore -= 10; error = 1;}
-            if (!q15.getText().equals("6")) {sudokuScore -= 10; error = 1;}
-            if (!q16.getText().equals("4")) {sudokuScore -= 10; error = 1;}
+            if (!q11.getText().equals("9")) {sudokuScore -= 10; error = 1;}
+            if (!q12.getText().equals("2")) {sudokuScore -= 10; error = 1;}
+            if (!q13.getText().equals("3")) {sudokuScore -= 10; error = 1;}
+            if (!q14.getText().equals("4")) {sudokuScore -= 10; error = 1;}
+            if (!q15.getText().equals("5")) {sudokuScore -= 10; error = 1;}
+            if (!q16.getText().equals("6")) {sudokuScore -= 10; error = 1;}
             if (!q17.getText().equals("7")) {sudokuScore -= 10; error = 1;}
             if (!q21.getText().equals("1")) {sudokuScore -= 10; error = 1;}
             if (!q22.getText().equals("8")) {sudokuScore -= 10; error = 1;}
