@@ -836,7 +836,7 @@ public class sudokuGameFrame implements ActionListener{
             else if (q98.getText().equals("1")) {if(!e98) {error--; e98 = true;} e98 = true;}
 
             //Format if statements as if (!q98.getText().equals("1")) {if(b98) {sudokuScore -= 10;} b98 = false; e98 = false; error++;}
-            //Remeber to reset booleans in main function so you can retry, and program "try again" button for if sudoku is completeley wrong (It will be easier to just reload the page)
+            //Remember to reset booleans in main function so you can retry, and program "try again" button for if sudoku is completeley wrong (It will be easier to just reload the page)
         System.out.println(error);
         System.out.println(sudokuScore);
     }
@@ -856,6 +856,9 @@ class gameBoard extends JPanel {    //Background for every other frame
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         
+        //paints thicker lines for mini squares
+        Graphics2D g2 = (Graphics2D) g;
+        
         //Sudoku board variables
         int baseHori = 120;
         int baseVert = 30;
@@ -874,17 +877,6 @@ class gameBoard extends JPanel {    //Background for every other frame
         }catch(IOException e){}
         g.drawImage(pic, baseHori, baseVert, 360, 360, this);
         
-        //Draw the 9 mini squares
-        g.setColor(Color.BLUE);
-        g.drawRect(baseHori, baseVert, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + squareOffset, baseVert, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + 2*squareOffset, baseVert, largeLength/3, largeLength/3);
-        g.drawRect(baseHori, baseVert + squareOffset, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + squareOffset, baseVert + squareOffset, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + 2*squareOffset, baseVert + squareOffset, largeLength/3, largeLength/3);
-        g.drawRect(baseHori, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + squareOffset, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
-        g.drawRect(baseHori + 2*squareOffset, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
         //Draw the large square
         g.setColor(Color.BLACK);
         g.drawRect(baseHori, baseVert, largeLength, largeLength);
@@ -902,5 +894,17 @@ class gameBoard extends JPanel {    //Background for every other frame
         g.drawLine(baseHori, baseVert + 5*lineOffset, largeLength + baseHori, baseVert + 5*lineOffset);
         g.drawLine(baseHori, baseVert + 7*lineOffset, largeLength + baseHori, baseVert + 7*lineOffset);
         g.drawLine(baseHori, baseVert + 8*lineOffset, largeLength + baseHori, baseVert + 8*lineOffset);
+        //Draw the 9 mini squares thicker
+        g2.setStroke(new BasicStroke(2));
+        g.setColor(Color.BLACK);
+        g.drawRect(baseHori, baseVert, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + squareOffset, baseVert, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + 2*squareOffset, baseVert, largeLength/3, largeLength/3);
+        g.drawRect(baseHori, baseVert + squareOffset, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + squareOffset, baseVert + squareOffset, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + 2*squareOffset, baseVert + squareOffset, largeLength/3, largeLength/3);
+        g.drawRect(baseHori, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + squareOffset, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
+        g.drawRect(baseHori + 2*squareOffset, baseVert + 2*squareOffset, largeLength/3, largeLength/3);
     }
 }
