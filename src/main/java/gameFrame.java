@@ -155,7 +155,7 @@ public class gameFrame extends javax.swing.JFrame {
         zCheck = true;
     }
 
-    public static void gameFrame() {    //This is the fame that contains the game
+    public static void gameFrame() {    //This is the frame that contains the game
         JFrame game = new JFrame("Game");   //Creates frame
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         score = 100;

@@ -325,7 +325,7 @@ public class colorGameFrame extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                if (button2.getBackground().equals(color.getForeground())) {
                     score += 100;
-                    System.out.println("Sucess");
+                    System.out.println("Success");
                }
                
                 if (--rounds == 0) {
@@ -499,7 +499,7 @@ public class colorGameFrame extends javax.swing.JFrame{
             public void actionPerformed(ActionEvent e) {
                 if (button4.getBackground().equals(color.getForeground())) {
                     score += 100;
-                    System.out.println("Sucess");
+                    System.out.println("Success");
                 }
                 
                 if (--rounds == 0) {

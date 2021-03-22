@@ -102,10 +102,13 @@ public class menuFrame extends javax.swing.JFrame {
         JButton high_score = new JButton("High Scores");
         JButton credits = new JButton("Credits"); 
         JButton exit = new JButton("Exit");
+        JButton playPong = new JButton("Play Pong");
         play.setToolTipText("Start playing the games");
         high_score.setToolTipText("View the high scores");
         credits.setToolTipText("View the credits");
         exit.setToolTipText("Close the program");
+        playPong.setToolTipText("Start a game of Pong");
+        
         
         //Action Listeners for buttons
         play.addActionListener(new ActionListener() {
@@ -130,6 +133,12 @@ public class menuFrame extends javax.swing.JFrame {
             public void actionPerformed(ActionEvent e) {
                 menu.dispose();
                 System.exit(0);
+            }
+        });
+        playPong.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)  {
+                menu.setVisible(false);
+                pongGameFrame.pongGameFrame();
             }
         });
         
@@ -161,16 +170,18 @@ public class menuFrame extends javax.swing.JFrame {
         menu.add(credits);
         menu.add(exit);
         menu.add(logo);
+        menu.add(playPong);
         
         //These are the default dimensions for buttons
         int Dhori = 110;
         int Dvert = 30;
         
-        //Determinse the size and position of the buttons
+        //Determines the size and position of the each button
         play.setBounds(450, 250, Dhori, Dvert);
         high_score.setBounds(450, 300, Dhori, Dvert);
         credits.setBounds(450, 350, Dhori, Dvert);
         exit.setBounds(30, 350, Dhori, Dvert);
+        playPong.setBounds(450, 200, Dhori, Dvert);
         
         //Draws background on frame and makes it visible
         menu.add(p);
